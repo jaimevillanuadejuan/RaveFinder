@@ -1,0 +1,28 @@
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.social-medias {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.link {
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  text-decoration: none;
+  transition: 600ms;
+  color: black;
+  &:hover {
+    color: $background-third;
+  }
+}
+.social-medias svg {
+  height: 100%;
+  width: auto;
+}

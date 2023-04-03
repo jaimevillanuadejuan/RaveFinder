@@ -1,0 +1,106 @@
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.header {
+  width: 100%;
+  height: 60px;
+  color: white;
+  background-color: $background-first;
+  text-align: center;
+  position: relative;
+  margin-bottom: 1em;
+  &-block {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 6;
+    background-color: rgba(210, 229, 255, 0.5);
+    width: 100%;
+    text-align: center;
+    margin: 1em 0;
+  }
+  &-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 320px;
+    overflow: hidden;
+    z-index: 7;
+    color: white;
+    background-color: #dce5ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &-content,
+  &-container {
+    text-align: center;
+    margin: 1em 0;
+    :first-child {
+      margin: 0;
+    }
+  }
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+.nav-link {
+  text-decoration: none;
+  font-family: "Futura-Md-Medium";
+  font-size: 1.6em;
+  font-weight: bold;
+  color: black;
+  text-transform: uppercase;
+}
+.bars {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  position: absolute;
+  color: black;
+  left: 10px;
+  top: 10px;
+}
+.logo {
+  height: 45px;
+  margin: 5px 0;
+  &-link {
+    display: inline-block;
+    height: 50%;
+  }
+}
+.icon {
+  width: 50%;
+}
+.times {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: black;
+  float: right;
+  margin: 10px 10px 0 0;
+}
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5em;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+.social-medias-container {
+  height: 50px;
+  width: 80%;
+  margin: auto;
+}
