@@ -5,7 +5,8 @@
 .social-medias {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1rem;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -19,7 +20,7 @@
   transition: 600ms;
   color: black;
   &:hover {
-    color: $background-third;
+    color: $background-fifth;
   }
 }
 .social-medias svg {

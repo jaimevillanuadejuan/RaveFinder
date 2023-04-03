@@ -7,7 +7,7 @@ import Events from "./pages/Events/Events";
 import EventInfo from "./pages/EventInfo/EventInfo";
 import Support from "./pages/Support/Support";
 import Header from "./components/Header/Header";
-
+import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +18,7 @@ function App() {
         <Route path="/events/:id" element={<EventInfo />} />
         <Route path="/support" element={<Support />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

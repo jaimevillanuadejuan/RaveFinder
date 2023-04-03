@@ -12,6 +12,7 @@ import icon from "../../assets/icons/RaveFinderIcon.svg";
 import { EMAIL_ADDRESS } from "../../constants/constants";
 
 import "./Header.scss";
+import "../../App.scss";
 
 const Header = () => {
   const [showSideDrawer, setShowSideDrawer] = useState(false);
