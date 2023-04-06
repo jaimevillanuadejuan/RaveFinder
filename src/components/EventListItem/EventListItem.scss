@@ -1,3 +1,57 @@
-@use "../../styles/partials/fonts" as *;
-@use "../../styles/partials/variables" as *;
-@use "../../styles/partials/mixins" as *;
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.event {
+  display: flex;
+  flex-wrap: wrap;
+  @include tablet {
+    align-items: center;
+  }
+  &-poster {
+    width: 10rem;
+    object-fit: cover;
+  }
+  &-data {
+    flex: 1;
+    text-align: center;
+    width: 50%;
+    @include tablet {
+      width: calc(100% / 3);
+    }
+  }
+  &-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    @include tablet {
+      width: calc(100% / 3);
+    }
+  }
+  &__button {
+    height: 3rem;
+    position: relative;
+    display: block;
+    padding: 15px 5px;
+    text-align: center;
+    font-weight: bold;
+    width: 110px;
+    overflow: hidden;
+    cursor: pointer;
+    letter-spacing: 2px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    transition: all ease 600ms;
+    text-transform: uppercase;
+  }
+  &__purchase-button {
+    background-color: $background-fifth;
+    color: $fifth;
+    text-shadow: 0 1px 1px $background-third;
+    &:hover {
+      background-color: $background-fourth;
+    }
+  }
+}

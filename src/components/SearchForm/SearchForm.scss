@@ -1,0 +1,100 @@
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.banner {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  &-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    outline: none;
+  }
+}
+.search {
+  &-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 10px;
+    position: absolute;
+    left: 0;
+    top: 5%;
+    @include tablet {
+      padding: 0 6.25rem;
+      top: 19%;
+    }
+  }
+  &-bar__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+    @include tablet {
+      padding: 0;
+    }
+  }
+  &-bar {
+    height: 3.5rem;
+    width: 100%;
+    margin: 0;
+    padding-left: 2.5rem;
+    background: url("../../assets/icons/search.svg") no-repeat;
+    background-position: 10px 20px;
+    font-size: 20px;
+    outline: none;
+    border: 0.063rem solid $third;
+    background-color: white;
+    border-radius: 1rem;
+
+    &::placeholder {
+      font-size: 1rem;
+    }
+  }
+  &-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    @include tablet {
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    &__date {
+      width: 100%;
+    }
+    &__price,
+    &__city,
+    &__country {
+      width: 100%;
+      @include tablet {
+        width: 30%;
+      }
+    }
+  }
+  &__button {
+    background-color: $background-first;
+    height: 3rem;
+    position: relative;
+    display: block;
+    padding: 15px 5px;
+    text-align: center;
+    font-weight: bold;
+    width: 150px;
+    overflow: hidden;
+    cursor: pointer;
+    letter-spacing: 2px;
+    border: none;
+    text-decoration: none;
+    transition: all ease 600ms;
+    text-transform: uppercase;
+    &:hover {
+      background-color: $background-third;
+    }
+  }
+}
