@@ -16,17 +16,17 @@ const SearchForm = ({ handleSetEvents }) => {
 
   //We create our state variables to store the values the user selects in the form
   const [date, setDate] = useState(new Date());
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(null);
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
 
   //We create the arrays to list the options in the selectors
 
   const priceOptions = [
-    { value: "< 50", label: "< 50" },
-    { value: "< 100>", label: "< 100" },
-    { value: "< 150", label: "< 150" },
-    { value: "< 200", label: "< 200" },
+    { value: 50, label: " 50" },
+    { value: 100, label: " 100" },
+    { value: 150, label: " 150" },
+    { value: 200, label: " 200" },
   ];
   const [cityOptions, setCityOptions] = useState([]);
   const [countryOptions, setCountryOptions] = useState([]);
@@ -53,12 +53,14 @@ const SearchForm = ({ handleSetEvents }) => {
   /*We make an API call to Countries & Cities API to get the list of cities 
   for the selected country stored in our state variable country*/
   const handleFillCityList = (e) => {
+    console.log("<country search form", country);
     axios
       .post("https://countriesnow.space/api/v0.1/countries/cities", {
-        country: country,
+        country: country.value,
       })
       .then((response) => {
         const cityList = response.data.data;
+        console.log("city", cityList);
         setCityOptions(
           cityList.map((item) => {
             return { value: item, label: item };
@@ -72,24 +74,8 @@ const SearchForm = ({ handleSetEvents }) => {
   const handleEventsSearch = (e) => {
     //We prevent the page from loading again after the user clicks on the "find events" button
     e.preventDefault();
-    if (search && date && country && city) {
-      /*If we all the inputs in the form have been introduced we do a GET request 
-      to retrieve all the events in the API using the parameters*/
-      axios
-        .get(
-          "https://app.ticketmaster.com/discovery/v2/events/?keyword=" +
-            search +
-            "&city=" +
-            city +
-            "&apikey=" +
-            apiKey
-        )
-        .then((response) => {
-          handleSetEvents(response.data._embedded.events);
-        });
-      e.target.reset();
-      navigate("/events");
-    } else {
+    //if (!search || !date || !country.value || !city.value) {
+    if (!search || !date || !country || !city) {
       if (!search) {
         alert(
           "You need to type the name of an artist before earching for events!"
@@ -98,14 +84,54 @@ const SearchForm = ({ handleSetEvents }) => {
       if (!date) {
         alert("You need to select a date before earching for events!");
       }
-      if (!country.value) {
+      if (!country) {
         alert(
           "You need to select a country first before searching for events!"
         );
       }
-      if (!city.value) {
+      if (!city) {
         alert("You need to select a city first before searching for events!");
       }
+    }
+    if (search && date && country && city) {
+      /*If we all the inputs in the form have been introduced we do a GET request 
+      to retrieve all the events in the API using the parameters*/
+      console.log(city);
+
+      axios
+        .get(
+          "https://app.ticketmaster.com/discovery/v2/events/?keyword=" +
+            search +
+            "&city=" +
+            city.value +
+            "&apikey=" +
+            apiKey
+        )
+        .then((response) => {
+          console.log("responseÑ¨", response.data);
+          const eventList = response.data._embedded.events;
+          console.log("event List: ", eventList);
+          const eventListFiltered = eventList.filter((event) => {
+            console.log("event price: ", event.priceRanges[0].min);
+            console.log("price: ", price);
+            return event.priceRanges[0].min < price.value;
+          });
+          const eventListFilteredNoMin = eventList.filter(
+            (event) => !event.priceRanges
+          );
+
+          console.log("eventListFilterd: ", eventListFiltered);
+          console.log("eventListfilterednoMin: ", eventListFilteredNoMin);
+          const combined = [...eventListFiltered, eventListFilteredNoMin];
+          console.log("combined: ", combined);
+          handleSetEvents(combined);
+          //We reset all the inputs from the form
+          setPrice(null);
+          setCountry("");
+          setCity("");
+          setSearch("");
+        });
+      navigate("/events");
     }
   };
   //On component mount when Home loads for the first time we fill the country list
@@ -114,8 +140,9 @@ const SearchForm = ({ handleSetEvents }) => {
   }, []);
   //If our state variable country changes we call handleFillCityList to fill cityOptions
   useEffect(() => {
-    if (country.length) handleFillCityList();
+    if (country) handleFillCityList();
   }, [country]);
+
   return (
     <section className="banner">
       <video className="banner-video" muted autoPlay loop>
@@ -142,28 +169,32 @@ const SearchForm = ({ handleSetEvents }) => {
           <div className="search-inputs__price search-input">
             <Select
               placeholder=" Add price"
+              value={price}
               options={priceOptions}
-              onChange={(price) => {
-                setPrice(price);
-              }}
+              onChange={setPrice}
+              // onChange={(price) => {
+              //   setPrice(price);
+              // }}
             />
           </div>
           <div className="search-inputs__country search-input">
             <Select
               placeholder=" Add country"
               options={countryOptions}
-              onChange={(country) => {
-                setCountry(country.value);
-              }}
+              value={country}
+              onChange={setCountry}
+              // // value={country}
+              // onChange={(country) => {
+              //   setCountry(country.value);
+              // }}
             />
           </div>
           <div className="search-inputs__city search-input">
             <Select
               placeholder=" Add city"
               options={cityOptions}
-              onChange={(city) => {
-                setCity(city.value);
-              }}
+              value={city}
+              onChange={setCity}
             />
           </div>
         </div>

@@ -16,8 +16,7 @@ function App() {
   const handleSetEvents = (events) => {
     setEvents(events);
   };
-
-  console.log(events);
+  // console.log(events);
   return (
     <BrowserRouter>
       <Header />
