@@ -1,15 +1,18 @@
-@use "./styles/partials/fonts" as *;
-@use "./styles/partials/variables" as *;
-@use "./styles/partials/mixins" as *;
+@use "../styles/partials/fonts" as *;
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/mixins" as *;
 
 //Font used for website
 body {
   width: 100%;
   padding: 0;
   margin: 0;
-  font-family: "Futura-Md-Medium";
+  font-family: "FuturaMdMedium";
 }
 
+h1 {
+  font-size: 2.5rem;
+}
 //Pseudo classes
 p {
   font-size: 1rem;

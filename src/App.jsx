@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
 import Events from "./pages/Events/Events";
-import EventInfo from "./pages/EventInfo/EventInfo";
+import Event from "./pages/Event/Event";
 import Support from "./pages/Support/Support";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -26,7 +26,7 @@ function App() {
           path="/events"
           element={<Events events={events} handleSetEvents={handleSetEvents} />}
         />
-        <Route path="/events/:id" element={<EventInfo />} />
+        <Route path="/events/:id" element={<Event />} />
         <Route path="/support" element={<Support />} />
       </Routes>
       <Footer />

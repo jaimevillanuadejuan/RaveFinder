@@ -11,12 +11,12 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer-top">
-        <div className="footer-container">
+        <div className="footer-container footer-container--left">
           <Link className="footer-link" to="/">
             <img src={logo} alt="Ravefinder" className="footer-logo" />
           </Link>
         </div>
-        <div className="footer-container">
+        <div className="footer-container footer-container--middle">
           <ul className="footer-links">
             <li className="footer-links__item">
               <Link className="footer-link" to="/support">
@@ -35,7 +35,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="footer-container">
+        <div className="footer-container footer-container--right">
           <div className="social-medias-title">Social medias</div>
           <div className="social-medias-wrapper">
             <SocialMedias />

@@ -41,7 +41,12 @@ footer {
     width: 100%;
     @include tablet {
       padding: 0;
-      width: calc(100% / 3);
+    }
+    &--left,
+    &--right {
+      @include tablet {
+        width: 50%;
+      }
     }
   }
 
@@ -54,6 +59,10 @@ footer {
     margin: 0;
     padding: 0;
     list-style-type: none;
+    @include tablet {
+      flex-direction: row;
+      gap: 1rem;
+    }
     &__item {
       display: inline;
       margin: 6px 0;
@@ -99,11 +108,5 @@ footer {
     &:hover {
       color: $background-first;
     }
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .footerContainer:not(:last-child) {
-    padding-bottom: 20px;
   }
 }
