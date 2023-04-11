@@ -12,21 +12,42 @@ const EventListItem = ({
   purchaseLink,
 }) => {
   return (
-    <Link to={`/events${id}`}>
+    <Link className="event__link" to={`/events/${id}`}>
       <div className="event">
-        <img className="event-poster" src={posterUrl} alt="event-poster" />
-        <div className="event-data">
-          <p>{date}</p>
-          <h3 className="event-title">{name}</h3>
-          <p className="event-location">{location}</p>
-          <p className="event-start-price">
-            Tickets starting at: {startingPrice}
-          </p>
-        </div>
-        <div className="event-buttons">
-          <button className="event__purchase-button event__button">
-            purchase
-          </button>
+        <img className="event__poster" src={posterUrl} alt="event-poster" />
+        <div className="event__data">
+          <div className="event__date-container">
+            <p className="event__date-month">{date[0]}</p>
+            <p className="event__date-day">{date[1]}</p>
+          </div>
+          <div className="event__info">
+            <h3 className="event__title">{name}</h3>
+            <p className="event__location">{location}</p>
+            <p className="event__start-price">
+              Tickets starting at:
+              <span className="event__price-value">{" " + startingPrice}</span>
+            </p>
+            <p className="event__website-safety">
+              Website Safety:
+              <span
+                className={
+                  ticketSafety
+                    ? "event__website-safety--safe"
+                    : "event__website-safety--unknown"
+                }
+              >
+                {ticketSafety ? "  SAFE" : " UNKNOWN"}
+              </span>
+            </p>
+          </div>
+          <Link
+            className="event__button-container event__link"
+            to={purchaseLink}
+          >
+            <button className="event__purchase-button event__button">
+              purchase
+            </button>
+          </Link>
         </div>
       </div>
     </Link>

@@ -3,5 +3,6 @@
 @use "../../../styles/partials/mixins" as *;
 
 .events {
-  padding: 0 10px;
+  padding: 0 1.25rem;
+  background-color: $background-second;
 }

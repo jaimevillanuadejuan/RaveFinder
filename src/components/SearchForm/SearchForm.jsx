@@ -172,9 +172,6 @@ const SearchForm = ({ handleSetEvents }) => {
               value={price}
               options={priceOptions}
               onChange={setPrice}
-              // onChange={(price) => {
-              //   setPrice(price);
-              // }}
             />
           </div>
           <div className="search-inputs__country search-input">
@@ -183,10 +180,6 @@ const SearchForm = ({ handleSetEvents }) => {
               options={countryOptions}
               value={country}
               onChange={setCountry}
-              // // value={country}
-              // onChange={(country) => {
-              //   setCountry(country.value);
-              // }}
             />
           </div>
           <div className="search-inputs__city search-input">

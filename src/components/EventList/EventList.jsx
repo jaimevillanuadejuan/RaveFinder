@@ -10,21 +10,20 @@ const EventList = ({ events }) => {
       dateWithSlashes[1],
       dateWithSlashes[2]
     );
-    // request a weekday along with a long date
+    // request a date with a day and month
     const options = {
-      weekday: "long",
-      month: "long",
-      day: "numeric",
+      month: "short",
+      day: "2-digit",
     };
-    return newDate.toLocaleDateString("en-US", options);
+    return newDate.toLocaleDateString("en-US", options).split(" ");
   };
   return (
     <div className="events-list--big-screens">
       <ul className="events-list">
-        <li className="events-list__item">
-          {events.length &&
-            events.map((eventItem) => {
-              return (
+        {events.length &&
+          events.map((eventItem) => {
+            return (
+              <li className="events-list__item">
                 <EventListItem
                   key={eventItem.id}
                   id={eventItem.id}
@@ -58,12 +57,10 @@ const EventList = ({ events }) => {
                       : false
                   }
                   purchaseLink={eventItem.url}
-                  // moreInfoLink={eventItem?.products[0].url}
                 />
-              );
-            })}
-        </li>
-        ;
+              </li>
+            );
+          })}
       </ul>
     </div>
   );

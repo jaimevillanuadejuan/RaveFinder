@@ -4,34 +4,97 @@
 
 .event {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   @include tablet {
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 0.063rem solid $third;
   }
-  &-poster {
-    width: 10rem;
+  &__link {
+    text-decoration: none;
+    color: black;
+  }
+  &__poster {
+    width: 100%;
     object-fit: cover;
-  }
-  &-data {
-    flex: 1;
-    text-align: center;
-    width: 50%;
+
     @include tablet {
-      width: calc(100% / 3);
+      height: 7rem;
+      width: 7rem;
     }
   }
-  &-buttons {
+  &__data {
     width: 100%;
     display: flex;
-    justify-content: end;
-    gap: 1rem;
-    padding-top: 1.5rem;
+    justify-content: space-between;
+    padding-top: 1rem;
     @include tablet {
-      width: calc(100% / 3);
+      padding: 0;
     }
+  }
+  &__date {
+    &-container {
+      width: 4.2rem;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      align-items: center;
+    }
+    &-month,
+    &-day {
+      text-transform: uppercase;
+      line-height: 1.4;
+      font-size: 1.25rem;
+      margin: 0;
+      color: $first;
+    }
+  }
+  &__info {
+    flex-grow: 1;
+    line-height: 1.4;
+    @include desktop {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+  &__title,
+  &__location,
+  &__start-price,
+  &__website-safety {
+    margin: 0;
+  }
+  &__location {
+    color: $second;
+  }
+  &__price-value {
+    font-weight: bold;
+    color: $fourth;
+  }
+  &__website-safety {
+    &--safe,
+    &--unknown {
+      font-weight: bold;
+    }
+    &--safe {
+      color: $safe;
+    }
+    &--unknown {
+      color: $unknown;
+    }
+  }
+  &__button-container {
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   &__button {
     height: 3rem;
+    width: 25rem;
     position: relative;
     display: block;
     padding: 15px 5px;
@@ -39,9 +102,8 @@
     font-weight: bold;
     width: 110px;
     overflow: hidden;
+    border: none;
     cursor: pointer;
-    letter-spacing: 2px;
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     transition: all ease 600ms;
     text-transform: uppercase;
@@ -49,9 +111,8 @@
   &__purchase-button {
     background-color: $background-fifth;
     color: $fifth;
-    text-shadow: 0 1px 1px $background-third;
     &:hover {
-      background-color: $background-fourth;
+      background-color: $background-third;
     }
   }
 }
