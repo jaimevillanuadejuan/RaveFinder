@@ -109,29 +109,45 @@ const SearchForm = ({ handleSetEvents }) => {
         )
         .then((response) => {
           console.log("responseÑ¨", response.data);
-          const eventList = response.data._embedded.events;
-          console.log("event List: ", eventList);
-          const eventListFiltered = eventList.filter((event) => {
-            console.log("event price: ", event.priceRanges[0].min);
-            console.log("price: ", price);
-            return event.priceRanges[0].min < price.value;
-          });
-          const eventListFilteredNoMin = eventList.filter(
-            (event) => !event.priceRanges
-          );
+          if (response.data._embedded) {
+            const eventList = response.data._embedded.events;
+            console.log("event List: ", eventList);
+            /*We create an array to set the eventList called combined that
+          wil be either a combination of eventListFiltered and eventListFilteredNoMin
+          or just eventListFiltered*/
+            let combined = [];
+            const priceRange = eventList.some((event) => event.priceRanges);
+            console.log(priceRange);
+            let eventListFiltered = [];
+            if (priceRange) {
+              eventListFiltered = eventList.filter((event) => {
+                // console.log("event price: ", event.priceRanges[0]?.min);
+                console.log("price: ", price);
+                if (event.priceRanges)
+                  return event.priceRanges[0].min < price.value;
+              });
+              combined = eventListFiltered;
 
-          console.log("eventListFilterd: ", eventListFiltered);
-          console.log("eventListfilterednoMin: ", eventListFilteredNoMin);
-          const combined = [...eventListFiltered, eventListFilteredNoMin];
-          console.log("combined: ", combined);
-          handleSetEvents(combined);
-          //We reset all the inputs from the form
-          setPrice(null);
-          setCountry("");
-          setCity("");
-          setSearch("");
+              console.log("eventListFilterd: ", eventListFiltered);
+            } else {
+              const eventListFilteredNoMin = eventList.filter(
+                (event) => !event.priceRanges
+              );
+              combined = [...eventListFiltered, eventListFilteredNoMin];
+              console.log("eventListfilterednoMin: ", eventListFilteredNoMin);
+            }
+            console.log("combined: ", combined);
+            handleSetEvents(combined);
+            //We reset all the inputs from the form
+            setPrice(null);
+            setCountry("");
+            setCity("");
+            setSearch("");
+            navigate("/events");
+          } else {
+            alert("No events were found with the selected filters");
+          }
         });
-      navigate("/events");
     }
   };
   //On component mount when Home loads for the first time we fill the country list

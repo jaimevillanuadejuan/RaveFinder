@@ -40,14 +40,14 @@ const EventListItem = ({
               </span>
             </p>
           </div>
-          <Link
+          <a
             className="event__button-container event__link"
-            to={purchaseLink}
+            href={purchaseLink}
           >
             <button className="event__purchase-button event__button">
               purchase
             </button>
-          </Link>
+          </a>
         </div>
       </div>
     </Link>
