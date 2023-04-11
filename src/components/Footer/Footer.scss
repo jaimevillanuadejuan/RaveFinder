@@ -21,6 +21,8 @@ footer {
     justify-content: space-evenly;
 
     @include tablet {
+      height: 5rem;
+
       flex-direction: row;
     }
   }
@@ -42,10 +44,15 @@ footer {
     @include tablet {
       padding: 0;
     }
-    &--left,
+
+    &--left {
+      @include tablet {
+        width: 50rem;
+      }
+    }
     &--right {
       @include tablet {
-        width: 50%;
+        width: 12rem;
       }
     }
   }
