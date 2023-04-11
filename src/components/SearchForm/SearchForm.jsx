@@ -116,27 +116,26 @@ const SearchForm = ({ handleSetEvents }) => {
           wil be either a combination of eventListFiltered and eventListFilteredNoMin
           or just eventListFiltered*/
             let combined = [];
-            const priceRange = eventList.some((event) => event.priceRanges);
-            console.log(priceRange);
+            //We check if there's at least an event that has no priceRange
+            const noPriceRange = eventList.some((event) => !event.priceRanges);
+            console.log(noPriceRange);
             let eventListFiltered = [];
-            if (priceRange) {
-              eventListFiltered = eventList.filter((event) => {
-                // console.log("event price: ", event.priceRanges[0]?.min);
-                console.log("price: ", price);
-                if (event.priceRanges)
-                  return event.priceRanges[0].min < price.value;
-              });
-              combined = eventListFiltered;
+            eventListFiltered = eventList.filter((event) => {
+              console.log("price: ", price);
+              if (event.priceRanges)
+                return event.priceRanges[0].min < price.value;
+            });
+            console.log("eventListFilterd: ", eventListFiltered);
+            combined = eventListFiltered;
 
-              console.log("eventListFilterd: ", eventListFiltered);
-            } else {
+            if (noPriceRange) {
               const eventListFilteredNoMin = eventList.filter(
                 (event) => !event.priceRanges
               );
-              combined = [...eventListFiltered, eventListFilteredNoMin];
+              combined = [...eventListFilteredNoMin];
               console.log("eventListfilterednoMin: ", eventListFilteredNoMin);
+              console.log("combined: ", combined);
             }
-            console.log("combined: ", combined);
             handleSetEvents(combined);
             //We reset all the inputs from the form
             setPrice(null);

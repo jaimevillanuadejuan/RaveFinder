@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1.5rem 0;
   @include tablet {
     flex-direction: row;
     align-items: center;
@@ -13,9 +14,22 @@
     padding: 1rem 0;
     border-bottom: 0.063rem solid $third;
   }
+  &__block-link {
+    width: 100%;
+    @include tablet {
+      flex-grow: 1;
+      display: flex;
+    }
+  }
   &__link {
     text-decoration: none;
     color: black;
+  }
+  &__container {
+    width: 100%;
+    @include tablet {
+      display: flex;
+    }
   }
   &__poster {
     width: 100%;
@@ -42,6 +56,9 @@
       flex-direction: column;
       flex-shrink: 0;
       align-items: center;
+      @include desktop {
+        justify-content: center;
+      }
     }
     &-month,
     &-day {
@@ -87,10 +104,15 @@
     }
   }
   &__button-container {
-    width: 10rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: end;
+    width: 100%;
+    padding-top: 1.5rem;
+    @include tablet {
+      padding: 0;
+      justify-content: center;
+      width: 40%;
+    }
   }
   &__button {
     height: 3rem;
