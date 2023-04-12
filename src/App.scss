@@ -26,12 +26,15 @@ p {
 }
 h2,
 h2,
+h3,
 h4,
 p {
   margin: 0;
 }
 //Pseudo classes for specific elements
 .button {
+  height: 3rem;
+  width: 7.5rem;
   position: relative;
   display: block;
   overflow: hidden;
@@ -42,17 +45,24 @@ p {
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
-  padding: 15px 5px;
   letter-spacing: 2px;
 }
 
 .event {
   &__link {
     text-decoration: none;
+    &--modifier {
+      display: none;
+    }
   }
-  &__purchase-button {
-    height: 3rem;
-    width: 7.5rem;
+  &__light-button {
+    background-color: $background-first;
+
+    &:hover {
+      background-color: $background-third;
+    }
+  }
+  &__dark-button {
     background-color: $background-fifth;
     color: $fourth;
     &:hover {

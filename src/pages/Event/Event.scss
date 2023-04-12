@@ -4,18 +4,29 @@
 
 .event-page {
   background-color: $background-second;
-  padding: 0 1.25rem;
+  padding: 1.5rem 1.25rem 1.5rem 1.25rem;
+  @include tablet {
+    padding: 0 3.5rem;
+  }
   @include desktop {
-    padding: 0 2.5rem;
+    padding: 0 4.25rem;
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    @include tablet {
+      padding: 1.5rem 0;
+    }
   }
   &__block {
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
     gap: 1.5rem;
     @include tablet {
       flex-direction: row;
       justify-content: space-between;
+      align-items: center;
     }
   }
   &__poster {
@@ -26,34 +37,43 @@
       width: 12rem;
     }
   }
-  &__title {
-    padding-top: 1rem;
+  &__info {
+    @include tablet {
+      width: 85%;
+    }
   }
+
   &__container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     @include tablet {
       flex-direction: row;
-    }
-  }
-  &__text,
-  &__buttons {
-    @include tablet {
-      width: 50%;
+      justify-content: space-between;
+      gap: 0;
     }
   }
   &__text {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    @include tablet {
+      flex-grow: 1;
+    }
   }
   &__buttons {
+    width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
+    gap: 2rem;
     @include tablet {
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      width: 50%;
+    }
+    @include desktop {
+      flex-direction: row;
+      justify-content: center;
     }
   }
   &__location {

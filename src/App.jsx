@@ -52,6 +52,7 @@ function App() {
               maxPrice={currentEvent.maxPrice}
               ticketSafety={currentEvent.ticketSafety}
               purchaseLink={currentEvent.purchaseLink}
+              additionalServices={currentEvent.additionalServices}
             />
           }
         />

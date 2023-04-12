@@ -50,9 +50,16 @@ footer {
         width: 50rem;
       }
     }
+    &--middle {
+      @include desktop {
+        flex-grow: 1;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
     &--right {
       @include tablet {
-        width: 12rem;
+        width: 10rem;
       }
     }
   }
@@ -67,9 +74,13 @@ footer {
     padding: 0;
     list-style-type: none;
     @include tablet {
+      width: 100%;
       flex-direction: row;
-      gap: 1rem;
+      justify-content: space-evenly;
     }
+    @include desktop {
+    }
+
     &__item {
       display: inline;
       margin: 6px 0;

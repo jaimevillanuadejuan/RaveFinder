@@ -13,6 +13,7 @@ const EventListItem = ({
   ticketSafety,
   purchaseLink,
   handleSetCurrentVideo,
+  additionalServices,
 }) => {
   return (
     <div
@@ -29,6 +30,7 @@ const EventListItem = ({
           maxPrice: maxPrice,
           ticketSafety: ticketSafety,
           purchaseLink: purchaseLink,
+          additionalServices: additionalServices,
         })
       }
     >
@@ -67,7 +69,12 @@ const EventListItem = ({
       </Link>
       <div className="event__button-container">
         <a className="event__link" href={purchaseLink}>
-          <button className="event__purchase-button button">purchase</button>
+          <button className="event__dark-button button">purchase</button>
+        </a>
+        <a className="event__link" href={additionalServices}>
+          <button className="event__light-button button">
+            additional services
+          </button>
         </a>
       </div>
     </div>

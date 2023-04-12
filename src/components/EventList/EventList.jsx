@@ -47,7 +47,7 @@ const EventList = ({ events, handleSetCurrentVideo }) => {
                   " - " +
                   eventItem._embedded.venues[0].name
               }
-              info={eventItem.info ? eventItem.info : ""}
+              info={eventItem._embedded.venues[0].generalInfo.generalRule}
               startingPrice={
                 eventItem.priceRanges ? eventItem.priceRanges[0].min : "N/A"
               }
@@ -63,6 +63,7 @@ const EventList = ({ events, handleSetCurrentVideo }) => {
                   : false
               }
               purchaseLink={eventItem.url}
+              additionalServices={eventItem.products[0]?.url}
             />
           </li>
         );

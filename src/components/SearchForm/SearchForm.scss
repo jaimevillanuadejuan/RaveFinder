@@ -27,8 +27,11 @@
     left: 0;
     top: 5%;
     @include tablet {
-      padding: 0 6.25rem;
+      padding: 0 3.5rem;
       top: 19%;
+    }
+    @include desktop {
+      padding: 0 4.25rem;
     }
   }
   &-bar__container {
@@ -78,11 +81,6 @@
     }
   }
   &__button {
-    background-color: $background-first;
-    height: 3rem;
     width: 9.375rem;
-    &:hover {
-      background-color: $background-third;
-    }
   }
 }

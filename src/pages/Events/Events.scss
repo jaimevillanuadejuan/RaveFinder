@@ -5,4 +5,10 @@
 .events {
   padding: 0 1.25rem;
   background-color: $background-second;
+  @include tablet {
+    padding: 0 3.5rem;
+  }
+  @include desktop {
+    padding: 0 4.25rem;
+  }
 }
