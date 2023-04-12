@@ -206,7 +206,7 @@ const SearchForm = ({ handleSetEvents }) => {
             />
           </div>
         </div>
-        <button className="search__button" type="submit">
+        <button className="search__button button" type="submit">
           find events
         </button>
       </form>

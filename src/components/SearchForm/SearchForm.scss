@@ -80,19 +80,7 @@
   &__button {
     background-color: $background-first;
     height: 3rem;
-    position: relative;
-    display: block;
-    padding: 15px 5px;
-    text-align: center;
-    font-weight: bold;
-    width: 150px;
-    overflow: hidden;
-    cursor: pointer;
-    letter-spacing: 2px;
-    border: none;
-    text-decoration: none;
-    transition: all ease 600ms;
-    text-transform: uppercase;
+    width: 9.375rem;
     &:hover {
       background-color: $background-third;
     }

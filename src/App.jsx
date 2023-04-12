@@ -12,9 +12,15 @@ import { useState } from "react";
 function App() {
   // We declare our state variables to pass the corresponding data to each page
   const [events, setEvents] = useState([]);
+  const [currentEvent, setCurrentEvent] = useState({});
 
   const handleSetEvents = (events) => {
     setEvents(events);
+  };
+
+  const handleSetCurrentVideo = (currentEvent) => {
+    setCurrentEvent(currentEvent);
+    console.log(currentEvent);
   };
   // console.log(events);
   return (
@@ -24,9 +30,31 @@ function App() {
         <Route path="/" element={<Home handleSetEvents={handleSetEvents} />} />
         <Route
           path="/events"
-          element={<Events events={events} handleSetEvents={handleSetEvents} />}
+          element={
+            <Events
+              events={events}
+              handleSetEvents={handleSetEvents}
+              handleSetCurrentVideo={handleSetCurrentVideo}
+            />
+          }
         />
-        <Route path="/events/:id" element={<Event />} />
+        <Route
+          path="/events/:id"
+          element={
+            <Event
+              id={currentEvent.id}
+              posterUrl={currentEvent.posterUrl}
+              date={currentEvent.date}
+              name={currentEvent.name}
+              location={currentEvent.location}
+              info={currentEvent.info}
+              startingPrice={currentEvent.startingPrice}
+              maxPrice={currentEvent.maxPrice}
+              ticketSafety={currentEvent.ticketSafety}
+              purchaseLink={currentEvent.purchaseLink}
+            />
+          }
+        />
         <Route path="/support" element={<Support />} />
       </Routes>
       <Footer />

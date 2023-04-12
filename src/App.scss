@@ -9,14 +9,76 @@ body {
   margin: 0;
   font-family: "FuturaMdMedium";
 }
-
-h1 {
-  font-size: 2.5rem;
+//Pseudo classes with html tags
+h2 {
+  font-size: 3rem;
+  font-weight: lighter;
 }
-//Pseudo classes
+h3 {
+  font-size: 2.5rem;
+  font-weight: lighter;
+}
+h4 {
+  font-size: 1.25rem;
+}
 p {
   font-size: 1rem;
 }
-h3 {
-  font-size: 1.25rem;
+h2,
+h2,
+h4,
+p {
+  margin: 0;
+}
+//Pseudo classes for specific elements
+.button {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all ease 600ms;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  padding: 15px 5px;
+  letter-spacing: 2px;
+}
+
+.event {
+  &__link {
+    text-decoration: none;
+  }
+  &__purchase-button {
+    height: 3rem;
+    width: 7.5rem;
+    background-color: $background-fifth;
+    color: $fourth;
+    &:hover {
+      background-color: $background-third;
+    }
+  }
+  //Class applied to ticket's price
+  &__start-price-value {
+    font-weight: bold;
+    color: $starting-price;
+  }
+  &__max-price-value {
+    font-weight: bold;
+    color: $max-price;
+  }
+  //Color class depending on provider's website safety
+  &__website-safety {
+    &--safe,
+    &--unknown {
+      font-weight: bold;
+    }
+    &--safe {
+      color: $safe;
+    }
+    &--unknown {
+      color: $unknown;
+    }
+  }
 }

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import EventListItem from "../EventListItem/EventListItem";
 import "./EventList.scss";
-const EventList = ({ events }) => {
+const EventList = ({ events, handleSetCurrentVideo }) => {
   //We create a handler to convert the date format to pass it as Day, Month, Year
 
   const handleDateFormatChange = (numericDate) => {
@@ -26,6 +26,7 @@ const EventList = ({ events }) => {
         return (
           <li key={eventItem.id} className="events-list__item">
             <EventListItem
+              handleSetCurrentVideo={handleSetCurrentVideo}
               id={eventItem.id}
               posterUrl={
                 eventItem.images
@@ -42,10 +43,16 @@ const EventList = ({ events }) => {
                 eventItem._embedded &&
                 eventItem._embedded.venues[0].city.name +
                   ", " +
-                  eventItem._embedded.venues[0].country.name
+                  eventItem._embedded.venues[0].country.name +
+                  " - " +
+                  eventItem._embedded.venues[0].name
               }
+              info={eventItem.info ? eventItem.info : ""}
               startingPrice={
                 eventItem.priceRanges ? eventItem.priceRanges[0].min : "N/A"
+              }
+              maxPrice={
+                eventItem.priceRanges ? eventItem.priceRanges[0].max : "N/A"
               }
               ticketSafety={
                 eventItem.ticketing

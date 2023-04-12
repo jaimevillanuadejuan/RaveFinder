@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem 0;
   @include tablet {
     flex-direction: row;
     align-items: center;
@@ -21,11 +20,8 @@
       display: flex;
     }
   }
-  &__link {
-    text-decoration: none;
-    color: black;
-  }
   &__container {
+    color: black;
     width: 100%;
     @include tablet {
       display: flex;
@@ -87,22 +83,7 @@
   &__location {
     color: $second;
   }
-  &__price-value {
-    font-weight: bold;
-    color: $fourth;
-  }
-  &__website-safety {
-    &--safe,
-    &--unknown {
-      font-weight: bold;
-    }
-    &--safe {
-      color: $safe;
-    }
-    &--unknown {
-      color: $unknown;
-    }
-  }
+
   &__button-container {
     display: flex;
     justify-content: end;
@@ -112,29 +93,6 @@
       padding: 0;
       justify-content: center;
       width: 40%;
-    }
-  }
-  &__button {
-    height: 3rem;
-    width: 25rem;
-    position: relative;
-    display: block;
-    padding: 15px 5px;
-    text-align: center;
-    font-weight: bold;
-    width: 110px;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all ease 600ms;
-    text-transform: uppercase;
-  }
-  &__purchase-button {
-    background-color: $background-fifth;
-    color: $fifth;
-    &:hover {
-      background-color: $background-third;
     }
   }
 }
