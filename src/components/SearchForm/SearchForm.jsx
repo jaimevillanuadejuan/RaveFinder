@@ -174,13 +174,6 @@ const SearchForm = ({ handleSetEvents }) => {
           />
         </div>
         <div className="search-inputs">
-          <div className="search-inputs__date search-input">
-            <Calendar
-              className="react-calendar"
-              onChange={setDate}
-              value={date}
-            />
-          </div>
           <div className="search-inputs__price search-input">
             <Select
               placeholder=" Add price"
@@ -207,7 +200,7 @@ const SearchForm = ({ handleSetEvents }) => {
           </div>
         </div>
         <button
-          className="search__button button event__light-button"
+          className="search__button button event__search-button"
           type="submit"
         >
           find events

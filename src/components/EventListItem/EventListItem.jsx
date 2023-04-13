@@ -14,6 +14,7 @@ const EventListItem = ({
   purchaseLink,
   handleSetCurrentVideo,
   additionalServices,
+  artistList,
 }) => {
   return (
     <div
@@ -31,6 +32,7 @@ const EventListItem = ({
           ticketSafety: ticketSafety,
           purchaseLink: purchaseLink,
           additionalServices: additionalServices,
+          artistList: artistList,
         })
       }
     >

@@ -8,7 +8,7 @@ const SocialMedias = () => {
   return (
     <div className="social-medias">
       <a
-        className="link"
+        className="dark-link link"
         href={`https://www.facebook.com/${FACEBOOK_PAGE_ID}`}
         aria-label="Facebook"
         target="_blank"
@@ -17,7 +17,7 @@ const SocialMedias = () => {
         <Facebook />
       </a>
       <a
-        className="link"
+        className="dark-link link"
         href={`http://instagram.com/${INSTAGRAM_PAGE_ID}`}
         aria-label="Instagram"
         target="_blank"

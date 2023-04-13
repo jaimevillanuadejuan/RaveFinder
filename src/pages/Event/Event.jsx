@@ -12,6 +12,7 @@ const Event = ({
   ticketSafety,
   purchaseLink,
   additionalServices,
+  artistList,
 }) => {
   return (
     <div className="event-page">
@@ -78,7 +79,10 @@ const Event = ({
         </div>
         <p className="event-page__description">{info}</p>
       </div>
-      <ArtistList />
+      <section className="event-page__artists">
+        <h3 className="event-page__artists-title">Performing Artists</h3>
+        <ArtistList artistList={artistList} />
+      </section>
     </div>
   );
 };

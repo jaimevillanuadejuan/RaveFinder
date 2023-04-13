@@ -20,9 +20,15 @@ h3 {
 }
 h4 {
   font-size: 1.25rem;
+  @include tablet {
+    font-size: 1.75rem;
+  }
 }
 p {
   font-size: 1rem;
+  @include tablet {
+    font-size: 1.25rem;
+  }
 }
 h2,
 h2,
@@ -31,7 +37,28 @@ h4,
 p {
   margin: 0;
 }
-//Pseudo classes for specific elements
+//_____________GENERAL ELEMENT PSEUDOCLASSES_____________
+
+.link {
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  text-decoration: none;
+  transition: 600ms;
+}
+.dark-link {
+  color: black;
+  &:hover {
+    color: $background-fifth;
+  }
+}
+.light-link {
+  color: $background-second;
+  &:hover {
+    color: $background-fourth;
+  }
+}
+
 .button {
   height: 3rem;
   width: 7.5rem;
@@ -46,7 +73,13 @@ p {
   text-align: center;
   font-weight: bold;
   letter-spacing: 2px;
+  @include tablet {
+    height: 3.5rem;
+    width: 8rem;
+  }
 }
+
+//_____________EVENT PAGE PSEUDOCLASSES_____________
 
 .event {
   &__link {
@@ -56,8 +89,13 @@ p {
     }
   }
   &__light-button {
+    background-color: $background-fourth;
+    &:hover {
+      background-color: $background-third;
+    }
+  }
+  &__search-button {
     background-color: $background-first;
-
     &:hover {
       background-color: $background-third;
     }

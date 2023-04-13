@@ -12,17 +12,6 @@
   margin: 0;
   padding: 0;
 }
-.link {
-  display: inline-block;
-  height: 100%;
-  text-align: center;
-  text-decoration: none;
-  transition: 600ms;
-  color: black;
-  &:hover {
-    color: $background-fifth;
-  }
-}
 .social-medias svg {
   height: 100%;
   width: auto;

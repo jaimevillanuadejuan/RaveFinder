@@ -14,6 +14,9 @@ function App() {
   const [events, setEvents] = useState([]);
   const [currentEvent, setCurrentEvent] = useState({});
 
+  /*We create our handlers to set the EventList and currentEvent state 
+  variables from other components passing them through props */
+
   const handleSetEvents = (events) => {
     setEvents(events);
   };
@@ -22,7 +25,7 @@ function App() {
     setCurrentEvent(currentEvent);
     console.log(currentEvent);
   };
-  // console.log(events);
+
   return (
     <BrowserRouter>
       <Header />
@@ -53,6 +56,7 @@ function App() {
               ticketSafety={currentEvent.ticketSafety}
               purchaseLink={currentEvent.purchaseLink}
               additionalServices={currentEvent.additionalServices}
+              artistList={currentEvent.artistList}
             />
           }
         />

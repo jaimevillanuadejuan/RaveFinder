@@ -19,7 +19,7 @@ footer {
     color: black;
     // margin: 10px 0 40px 0;
     justify-content: space-evenly;
-
+    background-color: $background-fourth;
     @include tablet {
       height: 5rem;
 
