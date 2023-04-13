@@ -93,7 +93,7 @@ const Event = ({
         <div className="event-page__button-wrapper">
           <a
             className="link"
-            href={`https://www.ticketmaster.com/search?${searchedArtist}`}
+            href={`https://www.ticketmaster.com/search?q=${searchedArtist}`}
           >
             <button className="button event__more-events-button">
               see more events from {searchedArtist}
