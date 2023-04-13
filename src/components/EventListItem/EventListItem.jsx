@@ -73,11 +73,15 @@ const EventListItem = ({
         <a className="event__link" href={purchaseLink}>
           <button className="event__dark-button button">purchase</button>
         </a>
-        <a className="event__link" href={additionalServices}>
-          <button className="event__light-button button">
-            additional services
-          </button>
-        </a>
+        {additionalServices.length ? (
+          <a className="event__link" href={additionalServices}>
+            <button className="event__light-button button">
+              additional services
+            </button>
+          </a>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
