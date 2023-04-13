@@ -7,7 +7,7 @@ const ArtistList = ({ artistList }) => {
   return (
     <ul className="artist-list">
       {artistList.map((artist) => {
-        console.log("Artist:", artist);
+        console.log(artist);
         return (
           <li key={artist.id} className="artist-list__item">
             <ArtistListItem
@@ -27,9 +27,11 @@ const ArtistList = ({ artistList }) => {
                       artist.externalLinks.spotify
                         ? artist.externalLinks.spotify[0].url
                         : "",
-                      artist.externalLinks.homepage[0]?.url,
+                      artist.externalLinks.homepage
+                        ? artist.externalLinks.homepage[0].url
+                        : "",
                     ]
-                  : []
+                  : ""
               }
               artistId={
                 artist.externalLinks && artist.externalLinks.spotify
