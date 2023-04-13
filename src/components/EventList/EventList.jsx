@@ -2,12 +2,7 @@ import { useEffect } from "react";
 import EventListItem from "../EventListItem/EventListItem";
 import { ReactComponent as Filter } from "../../assets/icons/filter.svg";
 import "./EventList.scss";
-const EventList = ({
-  events,
-  handleSetCurrentVideo,
-  handleSetEvents,
-  searchedArtist,
-}) => {
+const EventList = ({ events, handleSetCurrentVideo }) => {
   //We create a handler to convert the date format to pass it as Day, Month, Year
 
   const handleDateFormatChange = (numericDate) => {
@@ -25,15 +20,10 @@ const EventList = ({
     return newDate.toLocaleDateString("en-US", options).split(" ");
   };
 
-  const handleDateSort = () => {
-    // handleSetEvents(events.sort((event) => {
-    // }))
-  };
-
   return (
     <>
       {events.length ? (
-        <div className="events-filter__wrapper" onClick={handleDateSort}>
+        <div className="events-filter__wrapper">
           <h4 className="events-filter__text">filter by</h4>
           <Filter className="events-filter__icon" />
         </div>

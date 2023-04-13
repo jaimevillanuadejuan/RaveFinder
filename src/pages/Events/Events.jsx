@@ -25,8 +25,6 @@ const Events = ({
         <EventList
           events={events}
           handleSetCurrentVideo={handleSetCurrentVideo}
-          handleSetEvents={handleSetEvents}
-          searchedArtist={searchedArtist}
         />
       </div>
     </>
