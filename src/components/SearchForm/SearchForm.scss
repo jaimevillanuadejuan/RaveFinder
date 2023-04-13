@@ -14,6 +14,12 @@
     height: 600px;
     object-fit: cover;
     outline: none;
+    @include tablet {
+      height: 85vh;
+    }
+    @include desktop {
+      height: 85vh;
+    }
   }
 }
 .search {
