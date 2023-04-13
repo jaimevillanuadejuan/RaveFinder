@@ -70,7 +70,7 @@ const SearchForm = ({ handleSetEvents, handleSetSearchedArtist }) => {
     //We prevent the page from loading again after the user clicks on the "find events" button
     e.preventDefault();
     //if (!search || !date || !country.value || !city.value) {
-    if (!search || !price || !country || !city) {
+    if (!search || !price) {
       if (!search) {
         alert(
           "You need to type the name of an artist before earching for events!"
