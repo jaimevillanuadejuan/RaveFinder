@@ -34,12 +34,10 @@ function App() {
 
   const handleSetCurrentVideo = (currentEvent) => {
     setCurrentEvent(currentEvent);
-    console.log(currentEvent);
   };
 
   const handleSetSearchedArtist = (searchedTerm) => {
     setSearchedArtist(searchedTerm);
-    console.log(searchedArtist);
   };
 
   return (

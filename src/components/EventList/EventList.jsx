@@ -33,8 +33,6 @@ const EventList = ({ events, handleSetCurrentVideo }) => {
 
       <ul className="events-list">
         {events.map((eventItem) => {
-          console.log("hiiii", eventItem);
-
           return (
             <li key={eventItem.id} className="events-list__item">
               <EventListItem
