@@ -34,12 +34,12 @@ const SearchForm = ({ handleSetEvents, handleSetSearchedArtist }) => {
   //We make an API call to Countries & Cities API to get the list of countries
   const handleFillCountryList = (e) => {
     axios
-      .get("https://countriesnow.space/api/v0.1/countries")
+      .get("https://countriesnow.space/api/v0.1/countries/iso")
       .then((response) => {
         const countryList = response.data.data;
         setCountryOptions(
           countryList.map((item) => {
-            return { value: item.country, label: item.country };
+            return { value: item.Iso2, label: item.name };
           })
         );
       })
@@ -79,67 +79,68 @@ const SearchForm = ({ handleSetEvents, handleSetSearchedArtist }) => {
       if (!price) {
         alert("You need to select a price first before searching for events!");
       }
-      if (!country) {
-        alert(
-          "You need to select a country first before searching for events!"
-        );
-      }
-      if (!city) {
-        alert("You need to select a city first before searching for events!");
-      }
+      // if (!country) {
+      //   alert(
+      //     "You need to select a country first before searching for events!"
+      //   );
+      // }
+      // if (!city) {
+      //   alert("You need to select a city first before searching for events!");
+      // }
     }
-    if (search && price !== null && country && city) {
-      /*If we all the inputs in the form have been introduced we do a GET request 
-      to retrieve all the events in the API using the parameters*/
+    if (
+      search &&
+      price !== null
+      // && country && city
+    ) {
+      /*We make a GET request to TicketMaster's API
+      to retrieve all the events using the parameters of search that the user selected*/
       //We set the searchTerm to the artist name that the user typed
-      console.log(search);
       handleSetSearchedArtist(search);
+      //We declare the initial endpoint to search an artist
+      let eventsEndPoint =
+        "https://app.ticketmaster.com/discovery/v2/events/?keyword=" + search;
 
-      axios
-        .get(
-          "https://app.ticketmaster.com/discovery/v2/events/?keyword=" +
-            search +
-            "&city=" +
-            city.value +
-            "&apikey=" +
-            apiKey
-        )
-        .then((response) => {
-          if (response.data._embedded) {
-            const eventList = response.data._embedded.events;
-            console.log("event List: ", eventList);
-            /*We create an array to set the eventList called combined that
+      if (country) {
+        eventsEndPoint = eventsEndPoint + "&countryCode=" + country.value;
+      }
+      if (city) {
+        eventsEndPoint = eventsEndPoint + "&city=" + city.value;
+      }
+      axios.get(eventsEndPoint + "&apikey=" + apiKey).then((response) => {
+        if (response.data._embedded) {
+          const eventList = response.data._embedded.events;
+          /*We create an array to set the eventList called combined that
           wil be either a combination of eventListFiltered and eventListFilteredNoMin
           or just eventListFiltered*/
-            let combined = [];
-            //We check if there's at least an event that has no priceRange
-            const noPriceRange = eventList.some((event) => !event.priceRanges);
-            let eventListFiltered = [];
-            eventListFiltered = eventList.filter((event) => {
-              if (event.priceRanges)
-                return event.priceRanges[0].min < price.value;
-            });
-            // console.log("eventListFilterd: ", eventListFiltered);
-            combined = eventListFiltered;
+          let combined = [];
+          //We check if there's at least an event that has no priceRange
+          const noPriceRange = eventList.some((event) => !event.priceRanges);
+          let eventListFiltered = [];
+          eventListFiltered = eventList.filter((event) => {
+            if (event.priceRanges)
+              return event.priceRanges[0].min < price.value;
+          });
+          combined = eventListFiltered;
 
-            if (noPriceRange) {
-              const eventListFilteredNoMin = eventList.filter(
-                (event) => !event.priceRanges
-              );
-              combined = [...eventListFilteredNoMin];
-            }
-            handleSetEvents(combined);
-
-            //We reset all the inputs from the form
-            setPrice(null);
-            setCountry("");
-            setCity("");
-            setSearch("");
-            navigate("/events");
-          } else {
-            alert("No events were found with the selected filters");
+          if (noPriceRange) {
+            const eventListFilteredNoMin = eventList.filter(
+              (event) => !event.priceRanges
+            );
+            combined = [...eventListFilteredNoMin];
           }
-        });
+          handleSetEvents(combined);
+
+          //We reset all the inputs from the form
+          setPrice(null);
+          setCountry("");
+          setCity("");
+          setSearch("");
+          navigate("/events");
+        } else {
+          alert("No events were found with the selected filters");
+        }
+      });
     }
   };
   //On component mount when Home loads for the first time we fill the country list
