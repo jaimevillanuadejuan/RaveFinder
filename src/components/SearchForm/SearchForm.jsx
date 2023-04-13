@@ -52,7 +52,7 @@ const SearchForm = ({ handleSetEvents, handleSetSearchedArtist }) => {
   const handleFillCityList = (e) => {
     axios
       .post("https://countriesnow.space/api/v0.1/countries/cities", {
-        country: country.value,
+        country: country.label,
       })
       .then((response) => {
         const cityList = response.data.data;
@@ -79,20 +79,8 @@ const SearchForm = ({ handleSetEvents, handleSetSearchedArtist }) => {
       if (!price) {
         alert("You need to select a price first before searching for events!");
       }
-      // if (!country) {
-      //   alert(
-      //     "You need to select a country first before searching for events!"
-      //   );
-      // }
-      // if (!city) {
-      //   alert("You need to select a city first before searching for events!");
-      // }
     }
-    if (
-      search &&
-      price !== null
-      // && country && city
-    ) {
+    if (search && price !== null) {
       /*We make a GET request to TicketMaster's API
       to retrieve all the events using the parameters of search that the user selected*/
       //We set the searchTerm to the artist name that the user typed
