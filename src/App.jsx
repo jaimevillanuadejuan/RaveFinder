@@ -9,7 +9,17 @@ import Support from "./pages/Support/Support";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
+
 function App() {
+  <Helmet>
+    <title>RaveFinder</title>
+    <meta
+      name="description"
+      content="Ravefinder application is a promotional search engine where users can look for concerts where their favorite artists are playing, find a safe purchase link to buy the ticket for that event and find out about other upcoming events."
+    />
+  </Helmet>;
+
   // We declare our state variables to pass the corresponding data to each page
   const [events, setEvents] = useState([]);
   const [currentEvent, setCurrentEvent] = useState({});

@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet";
+
 import "./Event.scss";
 import ArtistList from "../../components/ArtistList/ArtistList";
 const Event = ({
@@ -14,6 +16,10 @@ const Event = ({
   additionalServices,
   artistList,
 }) => {
+  <Helmet>
+    <title>RaveFinder Event Info Page</title>
+    <meta name="description" content="RaveFinder Event Info Page" />
+  </Helmet>;
   return (
     <div className="event-page">
       <div className="event-page__wrapper">
