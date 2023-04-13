@@ -1,0 +1,127 @@
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.event-page {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: $background-second;
+    padding: 1.5rem 1.25rem 1.5rem 1.25rem;
+    @include tablet {
+      padding: 1.5rem 3.5rem 1.5rem 3.5rem;
+    }
+    @include desktop {
+      padding: 1.5rem 4.25rem 1.5rem 4.25rem;
+    }
+  }
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__poster {
+    object-fit: cover;
+    width: 100%;
+    @include tablet {
+      height: 12rem;
+      width: 12rem;
+    }
+  }
+  &__info {
+    @include tablet {
+      width: 85%;
+    }
+  }
+  &__headings {
+    display: flex;
+    gap: 0.5rem;
+    @include tablet {
+      flex-grow: 0;
+      justify-content: flex-start;
+      gap: 1.5rem;
+    }
+  }
+  &__date {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    @include tablet {
+      flex-direction: row;
+    }
+    @include desktop {
+      justify-content: center;
+    }
+    &-month,
+    &-day {
+      text-transform: uppercase;
+      line-height: 1.4;
+      margin: 0;
+      color: $first;
+    }
+  }
+  &__name {
+    text-transform: uppercase;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    @include tablet {
+      flex-grow: 1;
+    }
+  }
+  &__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+    }
+    @include desktop {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  &__location {
+    color: $second;
+    font-weight: lighter;
+  }
+  &__button-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  &__artists {
+    background-color: $background-fifth;
+    padding: 1.5rem 1.25rem 1.5rem 1.25rem;
+    @include tablet {
+      padding: 1.5rem 3.5rem 1.5rem 3.5rem;
+    }
+    @include desktop {
+      padding: 1.5rem 4.25rem 1.5rem 4.25rem;
+    }
+    &-title {
+      color: $background-second;
+    }
+  }
+}
