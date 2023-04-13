@@ -22,14 +22,14 @@ const EventList = ({ events, handleSetCurrentVideo }) => {
 
   return (
     <>
-      {events.length ? (
+      {/* {events.length ? (
         <div className="events-filter__wrapper">
           <h4 className="events-filter__text">filter by</h4>
           <Filter className="events-filter__icon" />
         </div>
       ) : (
         ""
-      )}
+      )} */}
 
       <ul className="events-list">
         {events.map((eventItem) => {
