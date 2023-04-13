@@ -6,7 +6,6 @@ import { ReactComponent as Website } from "../../assets/social_icons/website.svg
 import "./ArtistListItem.scss";
 
 const ArtistListItem = ({ name, profilePictureUrl, socialLinks, artistId }) => {
-  console.log(socialLinks);
   const spotifyPlayerUrl = `https://open.spotify.com/embed/artist/${artistId}`;
   return (
     <div className="artist">
