@@ -41,13 +41,16 @@ const Header = () => {
               <Times className="times" onClick={sideDrawerCloseHandler} />
             </div>
             <nav className="header-container">
-              <Link
-                to="/support"
+              <a
                 className="nav-link"
-                onClick={sideDrawerCloseHandler}
+                onClick={() => {
+                  alert(
+                    "We're currently working on our support form. Please reach out to us by using the contact us button !"
+                  );
+                }}
               >
                 Support
-              </Link>
+              </a>
               <a className="nav-link" href={`mailto:${EMAIL_ADDRESS}`}>
                 Contact us
               </a>
