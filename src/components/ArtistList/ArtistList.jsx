@@ -7,7 +7,6 @@ const ArtistList = ({ artistList }) => {
   return (
     <ul className="artist-list">
       {artistList.map((artist) => {
-        console.log(artist);
         return (
           <li key={artist.id} className="artist-list__item">
             <ArtistListItem
