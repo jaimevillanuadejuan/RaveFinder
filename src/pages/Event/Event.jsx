@@ -1,7 +1,7 @@
 import "./Event.scss";
 import ArtistList from "../../components/ArtistList/ArtistList";
 const Event = ({
-  id,
+  searchedArtist,
   posterUrl,
   date,
   name,
@@ -25,7 +25,13 @@ const Event = ({
             alt="event-page-poster"
           />
           <div className="event-page__info">
-            <h2 className="event-page__name">{name}</h2>
+            <div className="event-page__headings">
+              <div className="event-page__date">
+                <h3 className="event-page__date-month">{date[0]}</h3>
+                <h3 className="event-page__date-day">{date[1]}</h3>
+              </div>
+              <h2 className="event-page__name">{name}</h2>
+            </div>
             <div className="event-page__container">
               <div className="event-page__text">
                 <h4 className="event-page__location">{location}</h4>
@@ -78,6 +84,16 @@ const Event = ({
           </div>
         </div>
         <p className="event-page__description">{info}</p>
+        <div className="event-page__button-wrapper">
+          <a
+            className="link"
+            href={`https://www.ticketmaster.com/search?${searchedArtist}`}
+          >
+            <button className="button event__more-events-button">
+              see more events from {searchedArtist}
+            </button>
+          </a>
+        </div>
       </div>
       <section className="event-page__artists">
         <h3 className="event-page__artists-title">Performing Artists</h3>

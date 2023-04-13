@@ -6,15 +6,20 @@ const Events = ({
   events,
   handleSetEvents,
   handleSetCurrentVideo,
-  startingPrice,
+  handleSetSearchedArtist,
+  searchedArtist,
 }) => {
   return (
     <>
-      <SearchForm handleSetEvents={handleSetEvents} />
+      <SearchForm
+        handleSetEvents={handleSetEvents}
+        handleSetSearchedArtist={handleSetSearchedArtist}
+      />
       <div className="events">
         <EventList
           events={events}
           handleSetCurrentVideo={handleSetCurrentVideo}
+          searchedArtist={searchedArtist}
         />
       </div>
     </>

@@ -16,51 +16,53 @@ const ArtistListItem = ({ name, profilePictureUrl, socialLinks, artistId }) => {
         alt="artist-profile-picture"
       />
       <h3 className="artist__name">{name}</h3>
+      {socialLinks.length ? (
+        <ul className="artist__socials-list">
+          <li className="artist__socials-item">
+            <a
+              className="link light-link"
+              href={socialLinks.find((link) => link.includes("instagram"))}
+            >
+              <Instagram className="artist__socials-icon" />
+            </a>
+          </li>
+          <li className="artist__socials-item">
+            <a
+              className="link light-link"
+              href={socialLinks.find((link) => link.includes("youtube"))}
+            >
+              <Youtube className="artist__socials-icon" />
+            </a>
+          </li>
+          <li className="artist__socials-item">
+            <a
+              className="link light-link"
+              href={socialLinks.find((link) => link.includes("spotify"))}
+            >
+              <Spotify className="artist__socials-icon" />
+            </a>
+          </li>
+          <li className="artist__socials-item">
+            <a
+              className="link light-link"
+              href={socialLinks[socialLinks.length - 1]}
+            >
+              <Website className="artist__socials-icon" />
+            </a>
+          </li>
+        </ul>
+      ) : (
+        ""
+      )}
 
       {artistId ? (
-        <>
-          <ul className="artist__socials-list">
-            <li className="artist__socials-item">
-              <a
-                className="link light-link"
-                href={socialLinks.find((link) => link.includes("instagram"))}
-              >
-                <Instagram className="artist__socials-icon" />
-              </a>
-            </li>
-            <li className="artist__socials-item">
-              <a
-                className="link light-link"
-                href={socialLinks.find((link) => link.includes("youtube"))}
-              >
-                <Youtube className="artist__socials-icon" />
-              </a>
-            </li>
-            <li className="artist__socials-item">
-              <a
-                className="link light-link"
-                href={socialLinks.find((link) => link.includes("spotify"))}
-              >
-                <Spotify className="artist__socials-icon" />
-              </a>
-            </li>
-            <li className="artist__socials-item">
-              <a
-                className="link light-link"
-                href={socialLinks[socialLinks.length - 1]}
-              >
-                <Website className="artist__socials-icon" />
-              </a>
-            </li>
-          </ul>
-          <iframe
-            className="artist__best-tracks-player"
-            src={spotifyPlayerUrl}
-            allowtransparency="true"
-            allow="encrypted-media"
-            allowFullScreen=""
-          />
-        </>
+        <iframe
+          className="artist__best-tracks-player"
+          src={spotifyPlayerUrl}
+          allowtransparency="true"
+          allow="encrypted-media"
+          allowFullScreen=""
+        />
       ) : (
         ""
       )}

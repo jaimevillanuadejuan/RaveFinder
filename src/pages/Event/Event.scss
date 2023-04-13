@@ -39,7 +39,37 @@
       width: 85%;
     }
   }
-
+  &__headings {
+    display: flex;
+    gap: 0.5rem;
+    @include tablet {
+      flex-grow: 0;
+      justify-content: flex-start;
+      gap: 1.5rem;
+    }
+  }
+  &__date {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    @include tablet {
+      flex-direction: row;
+    }
+    @include desktop {
+      justify-content: center;
+    }
+    &-month,
+    &-day {
+      text-transform: uppercase;
+      line-height: 1.4;
+      margin: 0;
+      color: $first;
+    }
+  }
+  &__name {
+    text-transform: uppercase;
+  }
   &__container {
     display: flex;
     flex-direction: column;
@@ -77,14 +107,21 @@
     color: $second;
     font-weight: lighter;
   }
+  &__button-wrapper {
+    display: flex;
+    justify-content: center;
+  }
   &__artists {
-    background-color: $background-third;
+    background-color: $background-fifth;
     padding: 1.5rem 1.25rem 1.5rem 1.25rem;
     @include tablet {
       padding: 1.5rem 3.5rem 1.5rem 3.5rem;
     }
     @include desktop {
       padding: 1.5rem 4.25rem 1.5rem 4.25rem;
+    }
+    &-title {
+      color: $background-second;
     }
   }
 }

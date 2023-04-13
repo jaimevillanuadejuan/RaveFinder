@@ -13,6 +13,7 @@ function App() {
   // We declare our state variables to pass the corresponding data to each page
   const [events, setEvents] = useState([]);
   const [currentEvent, setCurrentEvent] = useState({});
+  const [searchedArtist, setSearchedArtist] = useState("");
 
   /*We create our handlers to set the EventList and currentEvent state 
   variables from other components passing them through props */
@@ -26,11 +27,24 @@ function App() {
     console.log(currentEvent);
   };
 
+  const handleSetSearchedArtist = (searchedTerm) => {
+    setSearchedArtist(searchedTerm);
+    console.log(searchedArtist);
+  };
+
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home handleSetEvents={handleSetEvents} />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              handleSetEvents={handleSetEvents}
+              handleSetSearchedArtist={handleSetSearchedArtist}
+            />
+          }
+        />
         <Route
           path="/events"
           element={
@@ -38,6 +52,8 @@ function App() {
               events={events}
               handleSetEvents={handleSetEvents}
               handleSetCurrentVideo={handleSetCurrentVideo}
+              handleSetSearchedArtist={handleSetSearchedArtist}
+              searchedArtist={searchedArtist}
             />
           }
         />
@@ -45,7 +61,7 @@ function App() {
           path="/events/:id"
           element={
             <Event
-              id={currentEvent.id}
+              searchedArtist={searchedArtist}
               posterUrl={currentEvent.posterUrl}
               date={currentEvent.date}
               name={currentEvent.name}

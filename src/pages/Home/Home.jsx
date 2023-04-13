@@ -1,7 +1,12 @@
 import SearchForm from "../../components/SearchForm/SearchForm";
 
-const Home = ({ handleSetEvents }) => {
-  return <SearchForm handleSetEvents={handleSetEvents} />;
+const Home = ({ handleSetEvents, handleSetSearchedArtist }) => {
+  return (
+    <SearchForm
+      handleSetEvents={handleSetEvents}
+      handleSetSearchedArtist={handleSetSearchedArtist}
+    />
+  );
 };
 
 export default Home;

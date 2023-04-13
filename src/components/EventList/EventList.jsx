@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import EventListItem from "../EventListItem/EventListItem";
 import { ReactComponent as Filter } from "../../assets/icons/filter.svg";
 import "./EventList.scss";
-const EventList = ({ events, handleSetCurrentVideo }) => {
+const EventList = ({ events, handleSetCurrentVideo, searchedArtist }) => {
   //We create a handler to convert the date format to pass it as Day, Month, Year
 
   const handleDateFormatChange = (numericDate) => {
@@ -22,13 +22,23 @@ const EventList = ({ events, handleSetCurrentVideo }) => {
 
   return (
     <>
-      <div className="events-filter__wrapper">
-        <h4 className="events-filter__text">filter by</h4>
-        <Filter className="events-filter__icon" />
-      </div>
+      {events.length ? (
+        <div className="events-filter__wrapper">
+          <h4 className="events-filter__text">filter by</h4>
+          <Filter className="events-filter__icon" />
+        </div>
+      ) : (
+        ""
+      )}
+
       <ul className="events-list">
         {events.map((eventItem) => {
           console.log("hiiii", eventItem);
+          console.log(searchedArtist);
+          console.log(
+            "OYEEE",
+            eventItem._embedded.attractions[0].upcomingEvents
+          );
           return (
             <li key={eventItem.id} className="events-list__item">
               <EventListItem
@@ -54,7 +64,7 @@ const EventList = ({ events, handleSetCurrentVideo }) => {
                     " - " +
                     eventItem._embedded.venues[0].name
                 }
-                info={eventItem._embedded.venues[0].generalInfo.generalRule}
+                info={eventItem._embedded.venues[0].generalInfo?.generalRule}
                 startingPrice={
                   eventItem.priceRanges ? eventItem.priceRanges[0].min : "N/A"
                 }
@@ -70,7 +80,9 @@ const EventList = ({ events, handleSetCurrentVideo }) => {
                     : false
                 }
                 purchaseLink={eventItem.url}
-                additionalServices={eventItem.products[0]?.url}
+                additionalServices={
+                  eventItem.products ? eventItem.products[0].url : ""
+                }
                 artistList={eventItem._embedded.attractions}
               />
             </li>

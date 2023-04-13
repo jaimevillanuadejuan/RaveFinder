@@ -7,6 +7,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  padding: 0 2rem;
 
   &__name {
     color: $background-second;
@@ -16,6 +17,8 @@
     object-fit: cover;
     width: 100%;
     @include tablet {
+      height: 200px;
+      width: 300px;
     }
   }
   &__socials {

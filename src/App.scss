@@ -13,21 +13,27 @@ body {
 h2 {
   font-size: 3rem;
   font-weight: lighter;
+  @include tablet {
+    font-size: 3.25rem;
+  }
 }
 h3 {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   font-weight: lighter;
+  @include tablet {
+    font-size: 2.5rem;
+  }
 }
 h4 {
   font-size: 1.25rem;
   @include tablet {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 }
 p {
   font-size: 1rem;
   @include tablet {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
 }
 h2,
@@ -105,6 +111,14 @@ p {
     color: $fourth;
     &:hover {
       background-color: $background-third;
+    }
+  }
+  &__more-events-button {
+    width: 9rem;
+    color: $background-second;
+    background-color: $background-sixth;
+    &:hover {
+      background-color: $background-fifth;
     }
   }
   //Class applied to ticket's price
