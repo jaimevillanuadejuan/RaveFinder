@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
-import Calendar from "react-calendar";
 import axios from "axios";
 
 import videoBanner from "../../assets/videos/VideoBanner.mp4";
 
 import "./SearchForm.scss";
-import "./Calendar.scss";
 
 const SearchForm = ({ handleSetEvents, handleSetSearchedArtist }) => {
   const apiKey = "ZamfNY5YiJEo29VCYjPTw0SZN0bfIE7w";
