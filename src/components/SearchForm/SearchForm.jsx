@@ -8,7 +8,7 @@ import videoBanner from "../../assets/videos/VideoBanner.mp4";
 import "./SearchForm.scss";
 
 const SearchForm = ({ handleSetEvents, handleSetSearchedArtist }) => {
-  const apiKey = "ZamfNY5YiJEo29VCYjPTw0SZN0bfIE7w";
+  const apiKey = process.env.REACT_APP_API_KEY;
   //We create our variable to register the input value typed on the search bar
   const [search, setSearch] = useState("");
 

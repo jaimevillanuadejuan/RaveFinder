@@ -16,7 +16,7 @@ function App() {
     <title>RaveFinder</title>
     <meta
       name="description"
-      content="Ravefinder application is a promotional search engine where users can look for concerts where their favorite artists are playing, find a safe purchase link to buy the ticket for that event and find out about other upcoming events."
+      content="RaveFinder application is a promotional search engine where users can look for concerts where their favorite artists are playing, find a safe purchase link to buy the ticket for that event and find out about other upcoming events."
     />
   </Helmet>;
 
