@@ -4,7 +4,7 @@
 <li>Ravefinder application is a promotional search engine where users can look for concerts where their favorite artists are playing, find a safe purchase link to buy the ticket for that event and find out about other upcoming events.</li>
 </ul><ul>
 <li>RaveFinder helps the raver find tickets for an event where their favorite artist/s are playing at a
-good price, having the option as well to filter by location, price and date of their choice, and
+good price, having the option as well to filter by location and price of their choice, and
 providing information about the safety of the ticket retailer’s website.</li>
 </ul><ul>
 <li>The end user will be a muisc lover who wants to find quickly the best ticket deal to go see
